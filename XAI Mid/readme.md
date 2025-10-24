@@ -1,4 +1,5 @@
 # XAI Mid
+
 ---
 
 ## Problem 1 — Surrogate model fidelity (RMSE)
@@ -17,9 +18,8 @@ A retail company developed a black-box model to predict monthly sales (units) fo
 Solution:
 
 RMSE formula:
-\[
-RMSE = \sqrt{\frac{1}{n}\sum_{i=1}^{n}(y_i - \hat{y}_i)^2}
-\]
+
+RMSE = sqrt((1/n) * sum(y_i - ŷ_i)^2)
 
 n = 4
 
@@ -58,9 +58,8 @@ A linear regression model predicts monthly product sales (in thousands) from adv
 Solution:
 
 Mean of actuals:
-\[
-\bar{y} = (20 + 25 + 30) / 3 = 25
-\]
+
+ȳ = (20 + 25 + 30) / 3 = 25
 
 SS_res (sum squared residuals):
 - (20 − 22)² = 4
@@ -87,6 +86,7 @@ An R² of 0.88 means the model explains 88% of the variance in sales — a stron
 ## Problem 3 — Perturbations, PDP and Sigmoid
 
 ### (a) Random perturbation
+
 Original customer spending values (in thousands of rupees):
 
 | Customer ID | Spending |
@@ -110,11 +110,10 @@ Result: 12.3, 18.3, 24.3, 30.3 (in thousands of rupees)
 ### (b) Structured perturbation (replace 3rd customer's value with mean)
 
 Mean of original values:
-\[
-\text{Mean} = (12 + 18 + 24 + 30) / 4 = 84 / 4 = 21
-\]
 
-Replace customer 3’s value (24) with 21:
+Mean = (12 + 18 + 24 + 30) / 4 = 84 / 4 = 21
+
+Replace customer 3's value (24) with 21:
 
 | Customer ID | Original | Perturbed |
 |-------------|---------:|----------:|
@@ -143,19 +142,17 @@ To draw a PDP (BP on x-axis, Average Prediction on y-axis), plot the three point
 
 Interpretation: As BP increases from −0.05 to 0.05, the average prediction rises from 102.0 to 107.8, showing a positive relationship in this BP range.
 
-(If a static image is required, plotting tools like matplotlib, Excel, or Google Sheets can be used with the table above.)
+<img width="590" height="390" alt="image" src="https://github.com/user-attachments/assets/a334a6a5-87f0-4ba9-9716-3722a1b57744" />
 
 ### (d) Sigmoid activation for I = −4
 
 Sigmoid:
-\[
-\sigma(I) = \frac{1}{1 + e^{-I}}
-\]
+
+σ(I) = 1 / (1 + e^(-I))
 
 For I = −4:
-\[
-\sigma(-4) = \frac{1}{1 + e^{4}} \approx \frac{1}{1 + 54.59815} \approx 0.017986
-\]
+
+σ(-4) = 1 / (1 + e^4) ≈ 1 / (1 + 54.59815) ≈ 0.017986
 
 Answer: σ(−4) ≈ 0.018 (≈ 1.8%)
 
@@ -182,17 +179,16 @@ Compute sums (n = 3):
 - ȳ = 48 / 3 = 16
 
 Slope:
-\[
-\beta_1 = \frac{n\sum xy - \sum x \sum y}{n\sum x^2 - (\sum x)^2}
-= \frac{3\cdot152 - 9\cdot48}{3\cdot29 - 9^2}
-= \frac{456 - 432}{87 - 81}
-= \frac{24}{6} = 4
-\]
+
+β₁ = (n·Σxy - Σx·Σy) / (n·Σx² - (Σx)²)
+   = (3·152 - 9·48) / (3·29 - 9²)
+   = (456 - 432) / (87 - 81)
+   = 24 / 6
+   = 4
 
 Intercept:
-\[
-\beta_0 = \bar{y} - \beta_1 \bar{x} = 16 - 4\cdot3 = 4
-\]
+
+β₀ = ȳ - β₁·x̄ = 16 - 4·3 = 4
 
 Answer: Regression line y = 4 + 4x (β₀ = 4, β₁ = 4)
 
@@ -216,5 +212,3 @@ Comparison:
 | Banking application | High accuracy loan repayment predictions but hard to explain why a customer was approved/denied. | Clear rules (e.g., "if income > X and score > Y then approve"), easy for officers and regulators to review and explain. |
 
 Key takeaway: Black-box models often deliver better predictive accuracy, while white-box models provide the explainability and transparency required in regulated domains like banking. Choosing between them depends on the trade-off between interpretability and performance, and sometimes a hybrid approach (black-box with surrogate or post-hoc explanations) is used.
-
----
