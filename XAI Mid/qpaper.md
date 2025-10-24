@@ -18,7 +18,7 @@ The following are the predicted sales from both models for four recent months:
 
 ---
 
-### 2 (1.1)
+### 2
 A marketing analyst at a company wants to evaluate the performance of a **linear regression model** that predicts monthly product sales (in thousands of units) based on the amount spent on online advertising.
 
 For a recent quarter, the actual and predicted sales values are given below:
