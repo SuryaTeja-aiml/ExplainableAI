@@ -1,3 +1,4 @@
+marks: 30, 1st q = 5+5, 2nd q = 3+3+4, 3rd q = 5+5  
 ### 1
 A retail company has developed a complex AI model (black-box) to predict the monthly sales (in units) for its top-selling product based on various marketing factors such as online advertisements, promotions, and customer engagement.
 
